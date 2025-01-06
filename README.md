@@ -1,8 +1,8 @@
 Phive Queue
 ===========
-[![Build Status](https://secure.travis-ci.org/bardoqi/php-hive-queue.svg?branch=master)](http://travis-ci.org/bardoqi/php-hive-queue)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/bardoqi/php-hive-queue/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/bardoqi/php-hive-queue/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/bardoqi/php-hive-queue/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/bardoqi/php-hive-queue/?branch=master)
+[![Build Status](https://secure.travis-ci.org/ddzh-dev/php-hive-queue.svg?branch=master)](http://travis-ci.org/ddzh-dev/php-hive-queue)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ddzh-dev/php-hive-queue/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ddzh-dev/php-hive-queue/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/ddzh-dev/php-hive-queue/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/ddzh-dev/php-hive-queue/?branch=master)
 
 Phive Queue is a time-based scheduling queue with multiple backend support.
 
@@ -34,7 +34,7 @@ Note: This package is forked from https://github.com/rybakit/phive-queue
 The recommended way to install Phive Queue is through [Composer](http://getcomposer.org):
 
 ```sh
-$ composer require bardoqi/php-hive-queue
+$ composer require ddzh-dev/php-hive-queue
 ```
 
 
