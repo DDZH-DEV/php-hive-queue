@@ -14,8 +14,7 @@ namespace Phive\Queue;
 /**
  * RedisQueue requires redis server 2.6 or higher.
  */
-class RedisQueue implements Queue
-{
+class RedisQueue implements Queue {
     const SCRIPT_PUSH = <<<'LUA'
         local id = redis.call('INCR', KEYS[2])
         return redis.call('ZADD', KEYS[1], ARGV[2], id..':'..ARGV[1])
@@ -33,16 +32,14 @@ LUA;
      */
     private $redis;
 
-    public function __construct(\Redis $redis)
-    {
+    public function __construct(\Redis $redis) {
         $this->redis = $redis;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function push($item, $eta = null)
-    {
+    public function push($item, $eta = null) {
         $eta = QueueUtils::normalizeEta($eta);
 
         if (\Redis::SERIALIZER_NONE !== $this->redis->getOption(\Redis::OPT_SERIALIZER)) {
@@ -56,8 +53,7 @@ LUA;
     /**
      * {@inheritdoc}
      */
-    public function pop()
-    {
+    public function pop() {
         $result = $this->redis->eval(self::SCRIPT_POP, ['items', time()], 1);
         $this->assertResult($result);
 
@@ -75,8 +71,7 @@ LUA;
     /**
      * {@inheritdoc}
      */
-    public function count()
-    {
+    public function count(): int {
         $result = $this->redis->zCard('items');
         $this->assertResult($result);
 
@@ -86,8 +81,7 @@ LUA;
     /**
      * {@inheritdoc}
      */
-    public function clear()
-    {
+    public function clear() {
         $result = $this->redis->del(['items', 'seq']);
         $this->assertResult($result);
     }
@@ -97,8 +91,7 @@ LUA;
      *
      * @throws QueueException
      */
-    protected function assertResult($result)
-    {
+    protected function assertResult($result) {
         if (false === $result) {
             throw new QueueException($this, $this->redis->getLastError());
         }
