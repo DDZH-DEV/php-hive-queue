@@ -11,19 +11,16 @@
 
 namespace Phive\Queue;
 
-class QueueException extends \RuntimeException
-{
+class QueueException extends \RuntimeException {
     private $queue;
 
-    public function __construct(Queue $queue, $message = null, $code = null, \Exception $previous = null)
-    {
+    public function __construct(Queue $queue, $message = null, $code = 0, \Exception $previous = null) {
         parent::__construct($message, $code, $previous);
 
         $this->queue = $queue;
     }
 
-    public function getQueue()
-    {
+    public function getQueue() {
         return $this->queue;
     }
 }
